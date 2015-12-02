@@ -36,5 +36,18 @@ namespace ProjectEuler
 
             return result;
         }
+
+        public static long SumPrimes(int n)
+        {
+            long sum = 0;
+            for (int i = 2; i < n; i++)
+            {
+                if (IsPrime(i))
+                {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
     }
 }

@@ -56,9 +56,17 @@ namespace ProjectEuler
             Console.WriteLine(result);
         }
 
+        public static void SumPrimesTest()
+        {
+            var result = Primes.SumPrimes(2000000);
+            Console.WriteLine(result);
+        }
+
+
         public static void Main(string[] args)
         {
-            GetPythagoreanTest();
+            //GetPythagoreanTest();
+            SumPrimesTest();
         }
     }
 }

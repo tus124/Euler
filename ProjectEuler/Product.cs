@@ -37,5 +37,30 @@ namespace ProjectEuler
 
             return results[results.Count - 1].Value;
         }
+
+        public static long FindLargestProduct(int[,] s)
+        {
+            List<long> results = new List<long>();
+
+            for (int i = 0; i < 20 - 1; i++)
+            {
+                for (int j = 0; j < 20 - 1; j++)
+                {
+                    long sum = 1;
+                    for (int k = j; k < j + 3 && j+3 < 20 - 1; k++)
+                    {
+                        sum *= s[i, k];
+                    }
+                    
+                    results.Add(sum);
+                }
+            }
+
+
+
+            results.Sort();
+
+            return results[results.Count -1];
+        }
     }
 }
