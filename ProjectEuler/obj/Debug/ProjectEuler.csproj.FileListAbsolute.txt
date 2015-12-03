@@ -10,3 +10,9 @@ C:\Users\IBM_ADMIN\Documents\Coding\Euler\ProjectEuler\obj\Debug\ProjectEuler.pd
 C:\Users\IBM_ADMIN\Documents\Coding\Euler\ProjectEuler\bin\Debug\ProjectEuler.exe
 C:\Users\IBM_ADMIN\Documents\Coding\Euler\ProjectEuler\bin\Debug\ProjectEuler.pdb
 C:\Users\IBM_ADMIN\Documents\Coding\Euler\ProjectEuler\obj\Debug\ProjectEuler.csprojResolveAssemblyReference.cache
+C:\Users\tejinderpal.virdee\Source\Repos\Euler\ProjectEuler\bin\Debug\ProjectEuler.exe.config
+C:\Users\tejinderpal.virdee\Source\Repos\Euler\ProjectEuler\obj\Debug\ProjectEuler.exe
+C:\Users\tejinderpal.virdee\Source\Repos\Euler\ProjectEuler\obj\Debug\ProjectEuler.pdb
+C:\Users\tejinderpal.virdee\Source\Repos\Euler\ProjectEuler\bin\Debug\ProjectEuler.exe
+C:\Users\tejinderpal.virdee\Source\Repos\Euler\ProjectEuler\bin\Debug\ProjectEuler.pdb
+C:\Users\tejinderpal.virdee\Source\Repos\Euler\ProjectEuler\obj\Debug\ProjectEuler.csprojResolveAssemblyReference.cache
