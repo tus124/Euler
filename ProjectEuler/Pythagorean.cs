@@ -12,36 +12,36 @@ namespace ProjectEuler
 
     public static class Pythagorean
     {
-        public static List<Triplets> GetTriplets(int n)
-        {
-            List<Triplets> result = new List<Triplets>();
+        //private static List<Triplets> GetTriplets(int n)
+        //{
+        //    List<Triplets> result = new List<Triplets>();
 
-            double a2, b2, c2;
-            for (int i = 1; i <= n; i++)
-            {
-                for (int j = i + 1; j <= n; j++)
-                {
-                    for (int k = j + 1; k <= n; k++)
-                    {
-                        a2 = i * i;
-                        b2 = j * j;
-                        c2 = k * k;
+        //    double a2, b2, c2;
+        //    for (int i = 1; i <= n; i++)
+        //    {
+        //        for (int j = i + 1; j <= n; j++)
+        //        {
+        //            for (int k = j + 1; k <= n; k++)
+        //            {
+        //                a2 = i * i;
+        //                b2 = j * j;
+        //                c2 = k * k;
 
-                        if (a2 + b2 == c2)
-                        {
-                            Triplets t = new Triplets();
-                            t.a = i;
-                            t.b = j;
-                            t.c = k;
+        //                if (a2 + b2 == c2)
+        //                {
+        //                    Triplets t = new Triplets();
+        //                    t.a = i;
+        //                    t.b = j;
+        //                    t.c = k;
 
-                            WriteTriplets(t);
-                        }
-                    }
-                }
-            }
+        //                    WriteTriplets(t);
+        //                }
+        //            }
+        //        }
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public static int FindPythagoreanTripletsProduct(int n)
         {
@@ -57,13 +57,13 @@ namespace ProjectEuler
             return 0;
         }
 
-        private static void WriteTriplets(Triplets t, string fileName = @"C:\dev\pythagoreanTriplets.txt")
-        {
-            using (StreamWriter file = new StreamWriter(fileName, true))
-            {
-                file.WriteLine(t.a + "," + t.b + "," + t.c);
-            }
-        }
+        //private static void WriteTriplets(Triplets t, string fileName = @"C:\dev\pythagoreanTriplets.txt")
+        //{
+        //    using (StreamWriter file = new StreamWriter(fileName, true))
+        //    {
+        //        file.WriteLine(t.a + "," + t.b + "," + t.c);
+        //    }
+        //}
 
         private static List<Triplets> GetTripletsFromFile(string fileName = @"C:\dev\pythagoreanTriplets.txt")
         {

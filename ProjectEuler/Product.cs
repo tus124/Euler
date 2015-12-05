@@ -46,28 +46,35 @@ namespace ProjectEuler
             {
                 for (int j = 0; j < length - 1; j++)
                 {
-                    long sum_leftToRight = 1, sum_upToDown = 1, sum_diagonial = 1;
+                    long sum_leftToRight = 1, sum_upToDown = 1, sum_diagonial1 = 1, sum_diagonial2 = 1;
                     for (int k = j; k <= j + 3 && j + 3 < length - 1; k++)
                     {
                         sum_leftToRight *= s[i, k];
-                        sum_upToDown *= s[k,i];
-                        sum_diagonial *= s[k, k];
+                        sum_upToDown *= s[k, i];
+                        sum_diagonial1 *= s[i + k, j + k];
 
+                        if (j >= 3)
+                        {
+                            sum_diagonial2 *= s[i + k, k - j];
+                        }
                     }
-                    if(sum_leftToRight > 0)
+                    if (sum_leftToRight > 0)
                         results.Add(sum_leftToRight);
 
-                    if(sum_upToDown > 0)
+                    if (sum_upToDown > 0)
                         results.Add(sum_upToDown);
 
-                    if(sum_diagonial > 0)
-                        results.Add(sum_diagonial);
+                    if (sum_diagonial1 > 0)
+                        results.Add(sum_diagonial1);
+
+                    if (sum_diagonial2 > 0)
+                        results.Add(sum_diagonial2);
                 }
             }
 
             results.Sort();
 
-            return results[results.Count -1];
+            return results[results.Count - 1];
         }
     }
 }
