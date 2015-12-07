@@ -40,41 +40,60 @@ namespace ProjectEuler
 
         public static long FindLargestProduct(int[,] s, int length)
         {
-            List<long> results = new List<long>();
+            List<Series> results = new List<Series>();
 
             for (int i = 0; i < length - 1; i++)
             {
                 for (int j = 0; j < length - 1; j++)
                 {
-                    long sum_leftToRight = 1, sum_upToDown = 1, sum_diagonial1 = 1, sum_diagonial2 = 1;
-                    for (int k = j; k <= j + 3 && j + 3 < length - 1; k++)
+                    long sum_leftToRight = 1, sum_upToDown = 1;
+                    long sum_diagonial_bottomRightToTopLeft = 1;
+                    long sum_diagonial_bottomRightToTopRight = 1;
+                    long sum_diagonial_topRightToBottomLeft = 1;
+                    long sum_diagonial_topRightToBottomRight = 1;
+
+                    StringBuilder leftToRight = new StringBuilder();
+                    StringBuilder upToDown = new StringBuilder();
+                    StringBuilder diagonial_bottomRightToTopLeft = new StringBuilder();
+                    StringBuilder diagonial_bottomRightToTopRight = new StringBuilder();
+                    StringBuilder diagonial_topRightToBottomLeft = new StringBuilder();
+                    StringBuilder diagonial_topRightToBottomRight = new StringBuilder();
+
+                    for (int k = j; k <= j + 3 && j + 3 < length - 1 && i + k < length - 1 && j + k < length - 1; k++)
                     {
+                        leftToRight.Append(s[i, k] + ",");
                         sum_leftToRight *= s[i, k];
+
+                        upToDown.Append(s[k, i] + ",");
                         sum_upToDown *= s[k, i];
-                        sum_diagonial1 *= s[i + k, j + k];
-
-                        if (j >= 3)
-                        {
-                            sum_diagonial2 *= s[i + k, k - j];
-                        }
                     }
-                    if (sum_leftToRight > 0)
-                        results.Add(sum_leftToRight);
 
-                    if (sum_upToDown > 0)
-                        results.Add(sum_upToDown);
+                    if (sum_leftToRight > 1) results.Add(new Series() { Product = leftToRight.ToString(), Value = sum_leftToRight });
+                    if (sum_upToDown > 1) results.Add(new Series() { Product = upToDown.ToString(), Value = sum_upToDown });
 
-                    if (sum_diagonial1 > 0)
-                        results.Add(sum_diagonial1);
+                    if (i >= 3 && j >= 3 && i < length - 4 && j < length - 4)
+                    {
+                        diagonial_bottomRightToTopLeft.Append(s[i - 0, j - 0] + "," + s[i - 1, j - 1] + "," + s[i - 2, j - 2] + "," + s[i - 3, j - 3]);
+                        diagonial_bottomRightToTopRight.Append(s[i - 0, j + 0] + "," + s[i - 1, j + 1] + "," + s[i - 2, j + 2] + "," + s[i - 3, j + 3]);
+                        diagonial_topRightToBottomLeft.Append(s[i + 0, j - 0] + "," + s[i + 1, j - 1] + "," + s[i + 2, j - 2] + "," + s[i + 3, j - 3]);
+                        diagonial_topRightToBottomRight.Append(s[i + 0, i + 0] + "," + s[i + 1, j + 1] + "," + s[i + 2, j + 2] + "," + s[i + 3, j + 3]);
 
-                    if (sum_diagonial2 > 0)
-                        results.Add(sum_diagonial2);
+                        sum_diagonial_bottomRightToTopLeft = s[i - 0, j - 0] * s[i - 1, j - 1] * s[i - 2, j - 2] * s[i - 3, j - 3];
+                        sum_diagonial_bottomRightToTopRight = s[i - 0, j + 0] * s[i - 1, j + 1] * s[i - 2, j + 2] * s[i - 3, j + 3];
+                        sum_diagonial_topRightToBottomLeft = s[i + 0, j - 0] * s[i + 1, j - 1] * s[i + 2, j - 2] * s[i + 3, j - 3];
+                        sum_diagonial_topRightToBottomRight = s[i + 0, i + 0] * s[i + 1, j + 1] * s[i + 2, j + 2] * s[i + 3, j + 3];
+                    }
+
+                    if (sum_diagonial_bottomRightToTopLeft > 1) results.Add(new Series() { Product = diagonial_bottomRightToTopLeft.ToString(), Value = sum_diagonial_bottomRightToTopLeft });
+                    if (sum_diagonial_bottomRightToTopRight > 1) results.Add(new Series() { Product = diagonial_bottomRightToTopRight.ToString(), Value = sum_diagonial_bottomRightToTopRight });
+                    if (sum_diagonial_topRightToBottomLeft > 1) results.Add(new Series() { Product = diagonial_topRightToBottomLeft.ToString(), Value = sum_diagonial_topRightToBottomLeft });
+                    if (sum_diagonial_topRightToBottomRight > 1) results.Add(new Series() { Product = diagonial_topRightToBottomRight.ToString(), Value = sum_diagonial_topRightToBottomRight });
                 }
             }
 
-            results.Sort();
+            results.Sort((x1, x2) => x1.Value.CompareTo(x2.Value));
 
-            return results[results.Count - 1];
+            return results[results.Count - 1].Value;
         }
     }
 }
