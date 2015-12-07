@@ -15,3 +15,4 @@ C:\Users\IBM_ADMIN\Documents\Coding\Euler\ProjectEuler\bin\Debug\ProjectEuler.dl
 C:\Users\IBM_ADMIN\Documents\Coding\Euler\ProjectEuler\bin\Debug\ProjectEuler.pdb
 C:\Users\IBM_ADMIN\Documents\Coding\Euler\ProjectEuler\obj\Debug\ProjectEuler.dll
 C:\Users\IBM_ADMIN\Documents\Coding\Euler\ProjectEuler\obj\Debug\ProjectEuler.pdb
+C:\Users\IBM_ADMIN\Documents\Coding\Euler\ProjectEuler\obj\Debug\ProjectEuler.csprojResolveAssemblyReference.cache
