@@ -43,13 +43,7 @@ namespace ProjectEuler
                 results = LargeMultiply.Multiply(results, (i).ToString());
             }
 
-            int sum = 0;
-            for (int i = 0; i < results.Length; i++)
-            {
-                sum += int.Parse(results[i].ToString());
-            }
-
-            return sum;
+            return results.GetSum();
         }
     }
 }

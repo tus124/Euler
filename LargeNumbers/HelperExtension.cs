@@ -5,6 +5,13 @@ namespace LargeNumbers
 {
     public static class HelperExtension
     {
+        public static void Swap(ref string s, ref string r)
+        {
+            string temp = s;
+            s = r;
+            r = temp;
+        }
+
         public static int[] ToIntArray(this string str)
         {
             var r = new int[str.Length];
@@ -45,11 +52,30 @@ namespace LargeNumbers
             return string.Join(delimiter, list.ToArray());
         }
 
-        public static void Swap(ref string s, ref string r)
+        public static int GetSum(this List<int> arr)
         {
-            string temp = s;
-            s = r;
-            r = temp;
+            int sum = 0;
+            for (int i = 0; i < arr.Count; i++)
+            {
+                sum += arr[i];
+            }
+            return sum;
+        }
+
+        public static int GetSum(this string str)
+        {
+            int sum = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                int results = 0;
+
+                if (int.TryParse(str[i].ToString(), out results))
+                {
+                    sum += results;
+                }
+            }
+
+            return sum;
         }
     }
 }

@@ -1,8 +1,5 @@
-﻿using System;
+﻿using LargeNumbers;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectEuler
 {
@@ -23,20 +20,10 @@ namespace ProjectEuler
             return arr;
         }
 
-        public static int getSum(List<int> arr)
-        {
-            int sum = 0;
-            for(int i=0; i<arr.Count; i++)
-            {
-                sum += arr[i];
-            }
-            return sum;
-        }
-
         public static bool isAmicableNumber(int k, out int results)
         {
-            int p = getSum(getProperDivisor(k));
-            int q = getSum(getProperDivisor(p));
+            int p = getProperDivisor(k).GetSum();
+            int q = getProperDivisor(p).GetSum();
             if (k != p && k == q)
             {
                 results = p;
@@ -67,7 +54,7 @@ namespace ProjectEuler
 
             }
 
-            return getSum(results);
+            return results.GetSum();
         }
     }
 }
