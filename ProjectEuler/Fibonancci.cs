@@ -1,4 +1,6 @@
-﻿namespace ProjectEuler
+﻿using LargeNumbers;
+
+namespace ProjectEuler
 {
     public static class Fibonancci
     {
@@ -19,6 +21,34 @@
                 first = second;
                 second = next;
             }
+            return sum;
+        }
+
+        public static string LargeFibonancci(int n)
+        {
+            string results = 1.ToString();
+            for (int i = 1; i <= n; i++)
+            {
+                results = LargeMultiply.Multiply(results, i.ToString());
+            }
+
+            return results;
+        }
+
+        public static int LargeFibonancciDigitSum(int n)
+        {
+            string results = 1.ToString();
+            for (int i = 1; i <= n; i++)
+            {
+                results = LargeMultiply.Multiply(results, (i).ToString());
+            }
+
+            int sum = 0;
+            for (int i = 0; i < results.Length; i++)
+            {
+                sum += int.Parse(results[i].ToString());
+            }
+
             return sum;
         }
     }
