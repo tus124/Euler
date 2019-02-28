@@ -3,3 +3,13 @@
 ################################################################################
 
 *.pdb
+*.dll
+/LargeNumbers/obj
+/LargeNumbersTests/obj/Debug
+/LargeNumbersTests/obj/Release
+/LargeNumbers/Properties
+/.vs
+*.config
+*.cache
+*.CopyComplete
+/ProjectEulerTest/obj/Debug
